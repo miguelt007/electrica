@@ -2,16 +2,34 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Mapa de Linhas Elétricas em Portugal</title>
+  <title>Mapa de Linhas Elétricas por Distrito</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
     body, html { margin: 0; padding: 0; height: 100%; }
     #map { height: 100%; width: 100%; }
+    .legend {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: white;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+    .legend div { margin-bottom: 5px; }
+    .color-box {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 6px;
+    }
   </style>
 </head>
 <body>
   <div id="map"></div>
+  <div class="legend" id="legend"></div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
@@ -21,31 +39,54 @@
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    const zonas = [
-      { nome: 'norte', cor: 'red' },
-      { nome: 'centro-coimbra', cor: 'blue' },
-      { nome: 'lisboa', cor: 'green' }
+    const distritos = [
+      { nome: 'aveiro', cor: '#e41a1c' },
+      { nome: 'beja', cor: '#377eb8' },
+      { nome: 'braga', cor: '#4daf4a' },
+      { nome: 'braganca', cor: '#984ea3' },
+      { nome: 'castelo-branco', cor: '#ff7f00' },
+      { nome: 'coimbra', cor: '#ffff33' },
+      { nome: 'evora', cor: '#a65628' },
+      { nome: 'faro', cor: '#f781bf' },
+      { nome: 'guarda', cor: '#999999' },
+      { nome: 'leiria', cor: '#66c2a5' },
+      { nome: 'lisboa', cor: '#fc8d62' },
+      { nome: 'portalegre', cor: '#8da0cb' },
+      { nome: 'porto', cor: '#e78ac3' },
+      { nome: 'santarem', cor: '#a6d854' },
+      { nome: 'setubal', cor: '#ffd92f' },
+      { nome: 'viana-do-castelo', cor: '#e5c494' },
+      { nome: 'vila-real', cor: '#b3b3b3' },
+      { nome: 'viseu', cor: '#1f78b4' }
     ];
 
-    zonas.forEach(zona => {
-      fetch(`dados/${zona.nome}.geojson`)
+    const legend = document.getElementById('legend');
+
+    distritos.forEach(distrito => {
+      fetch(`dados/${distrito.nome}.geojson`)
         .then(res => res.json())
         .then(data => {
           L.geoJSON(data, {
             style: feature => {
               const tipo = feature.properties.power;
               return {
-                color: tipo === 'line' ? zona.cor : '#999',
-                weight: 2
+                color: tipo === 'line' ? distrito.cor : '#666',
+                weight: tipo === 'line' ? 2.5 : 1.5,
+                opacity: 0.8
               };
             },
             onEachFeature: (feature, layer) => {
               const tipo = feature.properties.power || 'desconhecido';
-              layer.bindPopup(`Zona: ${zona.nome}<br>Tipo: ${tipo}`);
+              layer.bindPopup(`Distrito: ${distrito.nome}<br>Tipo: ${tipo}`);
             }
           }).addTo(map);
+
+          // Adicionar à legenda
+          const item = document.createElement('div');
+          item.innerHTML = `<span class="color-box" style="background:${distrito.cor}"></span>${distrito.nome}`;
+          legend.appendChild(item);
         })
-        .catch(err => console.error(`Erro ao carregar ${zona.nome}:`, err));
+        .catch(err => console.warn(`Erro ao carregar ${distrito.nome}:`, err));
     });
   </script>
 </body>
