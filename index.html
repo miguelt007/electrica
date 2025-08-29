@@ -32,6 +32,8 @@
       font-size: 14px;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      z5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
       z-index: 1000;
       max-height: 80vh;
       overflow-y: auto;
@@ -104,6 +106,7 @@
     <strong>Legenda:</strong><br>
     <div><span class="color-box" style="background:red"></span> Alta tensão (≈ 60–150 kV)</div>
     <div><span class="color-box" style="background:deepskyblue"></span> Média/baixa tensão (≈ 6–30 kV)</div>
+    <div><span class="color-box" style="background:#9b59b6"></span> Subestação principal REN</div>
     <div style="font-size:12px; margin-top:6px;">
       <em>Nota:</em> Potências estimadas com base em tensão típica.<br>
       Os ficheiros GeoJSON não incluem valores MVA diretamente.
@@ -205,10 +208,15 @@
       document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
         cb.checked = true;
         const nome = cb.dataset.distrito;
-        if (document.getElementById('filtroAlta').checked) map.addLayer(distritoCamadas[nome].alta);
-        if (document.getElementById('filtroBaixa').checked) map.addLayer(distritoCamadas[nome].baixa);
+        if (document.getElementById('filtroAlta').checked) {
+          map.addLayer(distritoCamadas[nome].alta);
+        }
+        if (document.getElementById('filtroBaixa').checked) {
+          map.addLayer(distritoCamadas[nome].baixa);
+        }
       });
     });
+
     document.getElementById('limparTodos').addEventListener('click', () => {
       document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
         cb.checked = false;
@@ -217,6 +225,30 @@
         map.removeLayer(distritoCamadas[nome].baixa);
       });
     });
+    // 🔌 Subestações principais REN
+    fetch('dados/subestacoes_principais.geojson')
+      .then(res => res.json())
+      .then(data => {
+        L.geoJSON(data, {
+          pointToLayer: (feature, latlng) => {
+            return L.circleMarker(latlng, {
+              radius: 7,
+              color: '#6a0dad',
+              fillColor: '#9b59b6',
+              fillOpacity: 0.9,
+              weight: 2
+            });
+          },
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties;
+            layer.bindPopup(
+              `<strong>${p.nome}</strong><br>` +
+              `Sigla: ${p.sigla}<br>` +
+              `${p.concelho}, ${p.distrito}`
+            );
+          }
+        }).addTo(map);
+      });
   </script>
 </body>
 </html>
