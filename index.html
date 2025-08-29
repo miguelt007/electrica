@@ -77,8 +77,8 @@
     <div id="filtroDistritos"></div>
     <hr>
     <strong>Legenda:</strong><br>
-    <div><span class="color-box" style="background:#000"></span> Alta tensão</div>
-    <div><span class="color-box" style="background:#666"></span> Média/baixa tensão</div>
+    <div><span class="color-box" style="background:red"></span> Alta tensão</div>
+    <div><span class="color-box" style="background:yellow"></span> Média/baixa tensão</div>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -90,24 +90,9 @@
     }).addTo(map);
 
     const distritos = [
-      { nome: 'aveiro', cor: '#e41a1c' },
-      { nome: 'beja', cor: '#377eb8' },
-      { nome: 'braga', cor: '#4daf4a' },
-      { nome: 'braganca', cor: '#984ea3' },
-      { nome: 'castelo-branco', cor: '#ff7f00' },
-      { nome: 'coimbra', cor: '#ffff33' },
-      { nome: 'evora', cor: '#a65628' },
-      { nome: 'faro', cor: '#f781bf' },
-      { nome: 'guarda', cor: '#999999' },
-      { nome: 'leiria', cor: '#66c2a5' },
-      { nome: 'lisboa', cor: '#fc8d62' },
-      { nome: 'portalegre', cor: '#8da0cb' },
-      { nome: 'porto', cor: '#e78ac3' },
-      { nome: 'santarem', cor: '#a6d854' },
-      { nome: 'setubal', cor: '#ffd92f' },
-      { nome: 'viana-do-castelo', cor: '#e5c494' },
-      { nome: 'vila-real', cor: '#b3b3b3' },
-      { nome: 'viseu', cor: '#1f78b4' }
+      'aveiro', 'beja', 'braga', 'braganca', 'castelo_branco', 'coimbra',
+      'evora', 'faro', 'guarda', 'leiria', 'lisboa', 'portalegre',
+      'porto', 'santarem', 'setubal', 'viana_do_castelo', 'vila_real', 'viseu'
     ];
 
     const linhasAlta = L.layerGroup().addTo(map);
@@ -115,33 +100,33 @@
     const distritoCamadas = {};
     const filtroDistritos = document.getElementById('filtroDistritos');
 
-    distritos.forEach(distrito => {
+    distritos.forEach(nome => {
       const checkbox = document.createElement('label');
-      checkbox.innerHTML = `<input type="checkbox" checked data-distrito="${distrito.nome}"> <span class="color-box" style="background:${distrito.cor}"></span>${distrito.nome}`;
+      checkbox.innerHTML = `<input type="checkbox" checked data-distrito="${nome}"> ${nome}`;
       filtroDistritos.appendChild(checkbox);
 
-      distritoCamadas[distrito.nome] = { alta: L.layerGroup(), baixa: L.layerGroup() };
+      distritoCamadas[nome] = { alta: L.layerGroup(), baixa: L.layerGroup() };
 
-      fetch(`dados/${distrito.nome}.geojson`)
+      fetch(`dados/${nome}.geojson`)
         .then(res => res.json())
         .then(data => {
           L.geoJSON(data, {
             style: feature => {
               const tipo = feature.properties.power;
               return {
-                color: tipo === 'line' ? distrito.cor : '#666',
+                color: tipo === 'line' ? 'red' : 'yellow',
                 weight: tipo === 'line' ? 2.5 : 1.5,
                 opacity: 0.8
               };
             },
             onEachFeature: (feature, layer) => {
               const tipo = feature.properties.power || 'desconhecido';
-              layer.bindPopup(`Distrito: ${distrito.nome}<br>Tipo: ${tipo}`);
+              layer.bindPopup(`Distrito: ${nome}<br>Tipo: ${tipo}`);
               if (tipo === 'line') {
-                distritoCamadas[distrito.nome].alta.addLayer(layer);
+                distritoCamadas[nome].alta.addLayer(layer);
                 linhasAlta.addLayer(layer);
               } else {
-                distritoCamadas[distrito.nome].baixa.addLayer(layer);
+                distritoCamadas[nome].baixa.addLayer(layer);
                 linhasBaixa.addLayer(layer);
               }
             }
@@ -150,18 +135,18 @@
     });
 
     document.getElementById('filtroAlta').addEventListener('change', e => {
-      distritos.forEach(d => {
-        const ativo = document.querySelector(`input[data-distrito="${d.nome}"]`).checked;
-        if (e.target.checked && ativo) map.addLayer(distritoCamadas[d.nome].alta);
-        else map.removeLayer(distritoCamadas[d.nome].alta);
+      distritos.forEach(nome => {
+        const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
+        if (e.target.checked && ativo) map.addLayer(distritoCamadas[nome].alta);
+        else map.removeLayer(distritoCamadas[nome].alta);
       });
     });
 
     document.getElementById('filtroBaixa').addEventListener('change', e => {
-      distritos.forEach(d => {
-        const ativo = document.querySelector(`input[data-distrito="${d.nome}"]`).checked;
-        if (e.target.checked && ativo) map.addLayer(distritoCamadas[d.nome].baixa);
-        else map.removeLayer(distritoCamadas[d.nome].baixa);
+      distritos.forEach(nome => {
+        const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
+        if (e.target.checked && ativo) map.addLayer(distritoCamadas[nome].baixa);
+        else map.removeLayer(distritoCamadas[nome].baixa);
       });
     });
 
