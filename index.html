@@ -23,8 +23,9 @@
       position: relative;
       z-index: 0;
     }
-    .filters, .legend {
+    .panel {
       position: absolute;
+      bottom: 10px;
       left: 10px;
       background: white;
       padding: 10px;
@@ -32,15 +33,12 @@
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0,0,0,0.3);
       z-index: 1000;
+      max-height: 80vh;
+      overflow-y: auto;
     }
-    .filters {
-      bottom: 120px;
-    }
-    .legend {
-      bottom: 10px;
-    }
-    .legend div {
-      margin-bottom: 5px;
+    .panel h3 {
+      margin-top: 0;
+      font-size: 16px;
     }
     .color-box {
       display: inline-block;
@@ -48,25 +46,28 @@
       height: 12px;
       margin-right: 6px;
     }
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
   </style>
 </head>
 <body>
   <h1>Mapa Interativo da Rede Elétrica por Distrito</h1>
   <div id="map"></div>
 
-  <div class="filters">
-    <strong>Filtros:</strong><br>
-    <label><input type="checkbox" id="filtroAlta" checked> Alta tensão</label><br>
+  <div class="panel">
+    <h3>Filtros</h3>
+    <strong>Tipos de linha:</strong><br>
+    <label><input type="checkbox" id="filtroAlta" checked> Alta tensão</label>
     <label><input type="checkbox" id="filtroBaixa" checked> Média/baixa tensão</label>
-  </div>
-
-  <div class="legend" id="legend">
-    <strong>Distritos:</strong>
-    <div id="distrito-cores"></div>
     <hr>
-    <strong>Tipos de linha:</strong>
-    <div><span class="color-box" style="background:#000"></span> Alta tensão (power=line)</div>
-    <div><span class="color-box" style="background:#666"></span> Média/baixa tensão (power=minor_line)</div>
+    <strong>Distritos:</strong><br>
+    <div id="filtroDistritos"></div>
+    <hr>
+    <strong>Legenda:</strong><br>
+    <div><span class="color-box" style="background:#000"></span> Alta tensão</div>
+    <div><span class="color-box" style="background:#666"></span> Média/baixa tensão</div>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -98,11 +99,18 @@
       { nome: 'viseu', cor: '#1f78b4' }
     ];
 
-    const distritoCores = document.getElementById('distrito-cores');
     const linhasAlta = L.layerGroup().addTo(map);
     const linhasBaixa = L.layerGroup().addTo(map);
+    const distritoCamadas = {};
+    const filtroDistritos = document.getElementById('filtroDistritos');
 
     distritos.forEach(distrito => {
+      const checkbox = document.createElement('label');
+      checkbox.innerHTML = `<input type="checkbox" checked data-distrito="${distrito.nome}"> <span class="color-box" style="background:${distrito.cor}"></span>${distrito.nome}`;
+      filtroDistritos.appendChild(checkbox);
+
+      distritoCamadas[distrito.nome] = { alta: L.layerGroup(), baixa: L.layerGroup() };
+
       fetch(`dados/${distrito.nome}.geojson`)
         .then(res => res.json())
         .then(data => {
@@ -119,18 +127,15 @@
               const tipo = feature.properties.power || 'desconhecido';
               layer.bindPopup(`Distrito: ${distrito.nome}<br>Tipo: ${tipo}`);
               if (tipo === 'line') {
+                distritoCamadas[distrito.nome].alta.addLayer(layer);
                 linhasAlta.addLayer(layer);
               } else {
+                distritoCamadas[distrito.nome].baixa.addLayer(layer);
                 linhasBaixa.addLayer(layer);
               }
             }
           });
-
-          const item = document.createElement('div');
-          item.innerHTML = `<span class="color-box" style="background:${distrito.cor}"></span>${distrito.nome}`;
-          distritoCores.appendChild(item);
-        })
-        .catch(err => console.warn(`Erro ao carregar ${distrito.nome}:`, err));
+        });
     });
 
     document.getElementById('filtroAlta').addEventListener('change', e => {
@@ -146,6 +151,20 @@
         map.addLayer(linhasBaixa);
       } else {
         map.removeLayer(linhasBaixa);
+      }
+    });
+
+    filtroDistritos.addEventListener('change', e => {
+      const nome = e.target.dataset.distrito;
+      if (!nome) return;
+      const ativo = e.target.checked;
+      if (document.getElementById('filtroAlta').checked) {
+        if (ativo) map.addLayer(distritoCamadas[nome].alta);
+        else map.removeLayer(distritoCamadas[nome].alta);
+      }
+      if (document.getElementById('filtroBaixa').checked) {
+        if (ativo) map.addLayer(distritoCamadas[nome].baixa);
+        else map.removeLayer(distritoCamadas[nome].baixa);
       }
     });
   </script>
