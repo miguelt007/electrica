@@ -1,0 +1,655 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+  "type": "Feature",
+  "properties": {
+    "nome": "Alto de Mira",
+    "sigla": "SAM",
+    "distrito": "Lisboa",
+    "concelho": "Amadora"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-9.219, 38.759]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Carregado",
+    "sigla": "SCG",
+    "distrito": "Lisboa",
+    "concelho": "Alenquer"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.987, 39.030]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Sines",
+    "sigla": "SSN",
+    "distrito": "Setúbal",
+    "concelho": "Santiago do Cacém"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.869, 37.956]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Sacavém",
+    "sigla": "SSV",
+    "distrito": "Lisboa",
+    "concelho": "Loures"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-9.105, 38.794]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Setúbal",
+    "sigla": "SSB",
+    "distrito": "Setúbal",
+    "concelho": "Setúbal"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.891, 38.524]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Alqueva",
+    "sigla": "SAV",
+    "distrito": "Beja",
+    "concelho": "Vidigueira"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.583, 38.216]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Batalha",
+    "sigla": "SBL",
+    "distrito": "Leiria",
+    "concelho": "Batalha"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.820, 39.659]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Bodiosa",
+    "sigla": "SBA",
+    "distrito": "Viseu",
+    "concelho": "Viseu"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.870, 40.630]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Canelas",
+    "sigla": "SCN",
+    "distrito": "Porto",
+    "concelho": "Vila Nova de Gaia"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.600, 41.120]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Carrapatelo",
+    "sigla": "SCL",
+    "distrito": "Viseu",
+    "concelho": "Cinfães"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.100, 41.100]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Castelo Branco",
+    "sigla": "SCC",
+    "distrito": "Castelo Branco",
+    "concelho": "Castelo Branco"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.490, 39.823]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Custóias",
+    "sigla": "SCT",
+    "distrito": "Porto",
+    "concelho": "Matosinhos"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.662, 41.183]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Divor",
+    "sigla": "SDVR",
+    "distrito": "Évora",
+    "concelho": "Évora"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.567, 38.622]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Ermesinde",
+    "sigla": "SED",
+    "distrito": "Porto",
+    "concelho": "Valongo"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.553, 41.215]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Estarreja",
+    "sigla": "SEJ",
+    "distrito": "Aveiro",
+    "concelho": "Estarreja"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.574, 40.750]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Estoi",
+    "sigla": "SET",
+    "distrito": "Faro",
+    "concelho": "Faro"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.950, 37.100]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Évora",
+    "sigla": "SER",
+    "distrito": "Évora",
+    "concelho": "Évora"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.910, 38.570]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Fafe",
+    "sigla": "SFAF",
+    "distrito": "Braga",
+    "concelho": "Fafe"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.170, 41.450]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Fernão Ferro",
+    "sigla": "SFF",
+    "distrito": "Setúbal",
+    "concelho": "Seixal"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-9.100, 38.580]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Feira",
+    "sigla": "SFRA",
+    "distrito": "Aveiro",
+    "concelho": "Santa Maria da Feira"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.540, 40.930]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Ferreira do Alentejo",
+    "sigla": "SFA",
+    "distrito": "Beja",
+    "concelho": "Ferreira do Alentejo"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.000, 38.050]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Ferro",
+    "sigla": "SFE",
+    "distrito": "Castelo Branco",
+    "concelho": "Covilhã"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.520, 40.300]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Frades",
+    "sigla": "SFRD",
+    "distrito": "Braga",
+    "concelho": "Vieira do Minho"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.100, 41.650]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Fundão",
+    "sigla": "SFDA",
+    "distrito": "Castelo Branco",
+    "concelho": "Fundão"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.500, 40.133]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Lavos",
+    "sigla": "SLV",
+    "distrito": "Coimbra",
+    "concelho": "Figueira da Foz"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.850, 40.150]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Lagoaça",
+    "sigla": "SLGC",
+    "distrito": "Bragança",
+    "concelho": "Freixo de Espada à Cinta"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.100, 41.100]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Macedo de Cavaleiros",
+    "sigla": "SMCC",
+    "distrito": "Bragança",
+    "concelho": "Macedo de Cavaleiros"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-6.950, 41.550]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Palmela",
+    "sigla": "SPM",
+    "distrito": "Setúbal",
+    "concelho": "Palmela"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.900, 38.570]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Pedralva",
+    "sigla": "SPDV",
+    "distrito": "Braga",
+    "concelho": "Braga"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.450, 41.550]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Pombal",
+    "sigla": "SPB",
+    "distrito": "Leiria",
+    "concelho": "Pombal"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.630, 39.920]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Portimão",
+    "sigla": "SPO",
+    "distrito": "Faro",
+    "concelho": "Portimão"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.540, 37.150]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Porto Alto",
+    "sigla": "SPA",
+    "distrito": "Santarém",
+    "concelho": "Benavente"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.930, 38.950]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Prelada",
+    "sigla": "SPLD",
+    "distrito": "Porto",
+    "concelho": "Porto"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.640, 41.170]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Recarei",
+    "sigla": "SRR",
+    "distrito": "Porto",
+    "concelho": "Paredes"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.400, 41.180]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Riba d'Ave",
+    "sigla": "SRA",
+    "distrito": "Braga",
+    "concelho": "Vila Nova de Famalicão"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.430, 41.430]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Rio Maior",
+    "sigla": "SRM",
+    "distrito": "Santarém",
+    "concelho": "Rio Maior"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.930, 39.340]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Santarém",
+    "sigla": "SSR",
+    "distrito": "Santarém",
+    "concelho": "Santarém"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.690, 39.230]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Sete Rios",
+    "sigla": "SSS",
+    "distrito": "Lisboa",
+    "concelho": "Lisboa"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-9.170, 38.740]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Siderurgia da Maia",
+    "sigla": "SSM",
+    "distrito": "Porto",
+    "concelho": "Maia"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.630, 41.230]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Tábua",
+    "sigla": "STBA",
+    "distrito": "Coimbra",
+    "concelho": "Tábua"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.030, 40.360]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Tavira",
+    "sigla": "STVR",
+    "distrito": "Faro",
+    "concelho": "Tavira"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.650, 37.130]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Torres Vedras",
+    "sigla": "STV",
+    "distrito": "Lisboa",
+    "concelho": "Torres Vedras"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-9.260, 39.090]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Viana do Castelo",
+    "sigla": "SVC",
+    "distrito": "Viana do Castelo",
+    "concelho": "Viana do Castelo"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.830, 41.700]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Vila do Conde",
+    "sigla": "SVDC",
+    "distrito": "Porto",
+    "concelho": "Vila do Conde"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.750, 41.350]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Viseu",
+    "sigla": "SVS",
+    "distrito": "Viseu",
+    "concelho": "Viseu"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.910, 40.660]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Vila Real",
+    "sigla": "SVR",
+    "distrito": "Vila Real",
+    "concelho": "Vila Real"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.740, 41.300]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Vila Verde",
+    "sigla": "SVVD",
+    "distrito": "Braga",
+    "concelho": "Vila Verde"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.430, 41.650]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Vilar de Frades",
+    "sigla": "SVF",
+    "distrito": "Braga",
+    "concelho": "Barcelos"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.720, 41.470]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Viseu Norte",
+    "sigla": "SVSN",
+    "distrito": "Viseu",
+    "concelho": "Viseu"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.880, 40.670]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Zibreira",
+    "sigla": "SZB",
+    "distrito": "Santarém",
+    "concelho": "Torres Novas"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.580, 39.470]
+  }
+}
+  ]
+}
