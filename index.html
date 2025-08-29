@@ -50,6 +50,13 @@
       display: block;
       margin-bottom: 4px;
     }
+    button {
+      margin-right: 6px;
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -63,6 +70,10 @@
     <label><input type="checkbox" id="filtroBaixa" checked> Média/baixa tensão</label>
     <hr>
     <strong>Distritos:</strong><br>
+    <div>
+      <button id="selecionarTodos">Selecionar todos</button>
+      <button id="limparTodos">Limpar todos</button>
+    </div>
     <div id="filtroDistritos"></div>
     <hr>
     <strong>Legenda:</strong><br>
@@ -83,7 +94,7 @@
       { nome: 'beja', cor: '#377eb8' },
       { nome: 'braga', cor: '#4daf4a' },
       { nome: 'braganca', cor: '#984ea3' },
-      { nome: 'castelo-branco', cor: '#ff7f00' },
+      { nome: 'castelo_branco', cor: '#ff7f00' },
       { nome: 'coimbra', cor: '#ffff33' },
       { nome: 'evora', cor: '#a65628' },
       { nome: 'faro', cor: '#f781bf' },
@@ -94,8 +105,8 @@
       { nome: 'porto', cor: '#e78ac3' },
       { nome: 'santarem', cor: '#a6d854' },
       { nome: 'setubal', cor: '#ffd92f' },
-      { nome: 'viana-do-castelo', cor: '#e5c494' },
-      { nome: 'vila-real', cor: '#b3b3b3' },
+      { nome: 'viana_do_castelo', cor: '#e5c494' },
+      { nome: 'vila_real', cor: '#b3b3b3' },
       { nome: 'viseu', cor: '#1f78b4' }
     ];
 
@@ -139,19 +150,19 @@
     });
 
     document.getElementById('filtroAlta').addEventListener('change', e => {
-      if (e.target.checked) {
-        map.addLayer(linhasAlta);
-      } else {
-        map.removeLayer(linhasAlta);
-      }
+      distritos.forEach(d => {
+        const ativo = document.querySelector(`input[data-distrito="${d.nome}"]`).checked;
+        if (e.target.checked && ativo) map.addLayer(distritoCamadas[d.nome].alta);
+        else map.removeLayer(distritoCamadas[d.nome].alta);
+      });
     });
 
     document.getElementById('filtroBaixa').addEventListener('change', e => {
-      if (e.target.checked) {
-        map.addLayer(linhasBaixa);
-      } else {
-        map.removeLayer(linhasBaixa);
-      }
+      distritos.forEach(d => {
+        const ativo = document.querySelector(`input[data-distrito="${d.nome}"]`).checked;
+        if (e.target.checked && ativo) map.addLayer(distritoCamadas[d.nome].baixa);
+        else map.removeLayer(distritoCamadas[d.nome].baixa);
+      });
     });
 
     filtroDistritos.addEventListener('change', e => {
@@ -166,6 +177,24 @@
         if (ativo) map.addLayer(distritoCamadas[nome].baixa);
         else map.removeLayer(distritoCamadas[nome].baixa);
       }
+    });
+
+    document.getElementById('selecionarTodos').addEventListener('click', () => {
+      document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
+        cb.checked = true;
+        const nome = cb.dataset.distrito;
+        if (document.getElementById('filtroAlta').checked) map.addLayer(distritoCamadas[nome].alta);
+        if (document.getElementById('filtroBaixa').checked) map.addLayer(distritoCamadas[nome].baixa);
+      });
+    });
+
+    document.getElementById('limparTodos').addEventListener('click', () => {
+      document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+        const nome = cb.dataset.distrito;
+        map.removeLayer(distritoCamadas[nome].alta);
+        map.removeLayer(distritoCamadas[nome].baixa);
+      });
     });
   </script>
 </body>
