@@ -81,6 +81,7 @@
     <div><span class="color-box" style="background:yellow"></span> Média/baixa tensão</div>
     <div><img src="https://cdn-icons-png.flaticon.com/512/2963/2963708.png" width="14" style="vertical-align:middle; margin-right:6px;"> Subestação</div>
   </div>
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const map = L.map('map').setView([39.5, -8], 7);
@@ -108,7 +109,7 @@
       fetch(`dados/${nome}.geojson`)
         .then(res => res.json())
         .then(data => {
-          L.geoJSON(data, {
+          const grupo = L.geoJSON(data, {
             style: feature => {
               const tipo = feature.properties.power;
               return {
@@ -125,19 +126,21 @@
               } else {
                 distritoCamadas[nome].baixa.addLayer(layer);
               }
-
-              const distritoAtivo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
-              if (tipo === 'line' && document.getElementById('filtroAlta').checked && distritoAtivo) {
-                map.addLayer(layer);
-              }
-              if (tipo !== 'line' && document.getElementById('filtroBaixa').checked && distritoAtivo) {
-                map.addLayer(layer);
-              }
             }
           });
+
+          // Adiciona ao mapa conforme os filtros
+          const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
+          if (document.getElementById('filtroAlta').checked && ativo) {
+            map.addLayer(distritoCamadas[nome].alta);
+          }
+          if (document.getElementById('filtroBaixa').checked && ativo) {
+            map.addLayer(distritoCamadas[nome].baixa);
+          }
         });
     });
-    // Filtro por tipo de linha
+
+    // Filtros por tipo
     document.getElementById('filtroAlta').addEventListener('change', e => {
       distritos.forEach(nome => {
         const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
@@ -158,7 +161,7 @@
       });
     });
 
-    // Filtro por distrito
+    // Filtros por distrito
     filtroDistritos.addEventListener('change', e => {
       const nome = e.target.dataset.distrito;
       if (!nome) return;
@@ -173,7 +176,7 @@
       }
     });
 
-    // Botões de seleção
+    // Botões
     document.getElementById('selecionarTodos').addEventListener('click', () => {
       document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
         cb.checked = true;
@@ -191,7 +194,8 @@
         map.removeLayer(distritoCamadas[nome].baixa);
       });
     });
-    // Subestações reais
+
+    // Subestações
     const subestacoesIcon = L.icon({
       iconUrl: 'https://cdn-icons-png.flaticon.com/512/2963/2963708.png',
       iconSize: [24, 24],
