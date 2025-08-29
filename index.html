@@ -81,7 +81,6 @@
     <div><span class="color-box" style="background:yellow"></span> Média/baixa tensão</div>
     <div><img src="https://cdn-icons-png.flaticon.com/512/2963/2963708.png" width="14" style="vertical-align:middle; margin-right:6px;"> Subestação</div>
   </div>
-
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const map = L.map('map').setView([39.5, -8], 7);
@@ -96,8 +95,6 @@
       'porto', 'santarem', 'setubal', 'viana_do_castelo', 'vila_real', 'viseu'
     ];
 
-    const linhasAlta = L.layerGroup().addTo(map);
-    const linhasBaixa = L.layerGroup().addTo(map);
     const distritoCamadas = {};
     const filtroDistritos = document.getElementById('filtroDistritos');
 
@@ -125,32 +122,43 @@
               layer.bindPopup(`Distrito: ${nome}<br>Tipo: ${tipo}`);
               if (tipo === 'line') {
                 distritoCamadas[nome].alta.addLayer(layer);
-                linhasAlta.addLayer(layer);
               } else {
                 distritoCamadas[nome].baixa.addLayer(layer);
-                linhasBaixa.addLayer(layer);
+              }
+
+              const distritoAtivo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
+              if (tipo === 'line' && document.getElementById('filtroAlta').checked && distritoAtivo) {
+                map.addLayer(layer);
+              }
+              if (tipo !== 'line' && document.getElementById('filtroBaixa').checked && distritoAtivo) {
+                map.addLayer(layer);
               }
             }
           });
         });
     });
-
+    // Filtro por tipo de linha
     document.getElementById('filtroAlta').addEventListener('change', e => {
       distritos.forEach(nome => {
         const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
-        if (e.target.checked && ativo) map.addLayer(distritoCamadas[nome].alta);
-        else map.removeLayer(distritoCamadas[nome].alta);
+        if (ativo) {
+          if (e.target.checked) map.addLayer(distritoCamadas[nome].alta);
+          else map.removeLayer(distritoCamadas[nome].alta);
+        }
       });
     });
 
     document.getElementById('filtroBaixa').addEventListener('change', e => {
       distritos.forEach(nome => {
         const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
-        if (e.target.checked && ativo) map.addLayer(distritoCamadas[nome].baixa);
-        else map.removeLayer(distritoCamadas[nome].baixa);
+        if (ativo) {
+          if (e.target.checked) map.addLayer(distritoCamadas[nome].baixa);
+          else map.removeLayer(distritoCamadas[nome].baixa);
+        }
       });
     });
 
+    // Filtro por distrito
     filtroDistritos.addEventListener('change', e => {
       const nome = e.target.dataset.distrito;
       if (!nome) return;
@@ -165,6 +173,7 @@
       }
     });
 
+    // Botões de seleção
     document.getElementById('selecionarTodos').addEventListener('click', () => {
       document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
         cb.checked = true;
@@ -182,7 +191,6 @@
         map.removeLayer(distritoCamadas[nome].baixa);
       });
     });
-
     // Subestações reais
     const subestacoesIcon = L.icon({
       iconUrl: 'https://cdn-icons-png.flaticon.com/512/2963/2963708.png',
