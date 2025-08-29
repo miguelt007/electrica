@@ -32,8 +32,6 @@
       font-size: 14px;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(0,0,0,0.3);
-      z5px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
       z-index: 1000;
       max-height: 80vh;
       overflow-y: auto;
@@ -213,7 +211,7 @@
         }
         if (document.getElementById('filtroBaixa').checked) {
           map.addLayer(distritoCamadas[nome].baixa);
-        }
+          }
       });
     });
 
@@ -225,7 +223,8 @@
         map.removeLayer(distritoCamadas[nome].baixa);
       });
     });
-    // 🔌 Subestações principais REN
+
+    // 🔌 Subestações principais REN com dados técnicos
     fetch('dados/subestacoes_principais.geojson')
       .then(res => res.json())
       .then(data => {
@@ -242,9 +241,13 @@
           onEachFeature: (feature, layer) => {
             const p = feature.properties;
             layer.bindPopup(
-              `<strong>${p.nome}</strong><br>` +
-              `Sigla: ${p.sigla}<br>` +
-              `${p.concelho}, ${p.distrito}`
+              `<strong>${p.nome} (${p.sigla})</strong><br>` +
+              `📍 ${p.concelho}, ${p.distrito}<br>` +
+              `🔌 Tipo: ${p.tipo || 'N/D'}<br>` +
+              `⚡ Tensão: ${p.tensao || 'N/D'}<br>` +
+              `🔋 Potência: ${p.potencia || 'N/D'}<br>` +
+              `🔗 Ligação RNT: ${p.ligacao_rnt || 'N/D'}<br>` +
+              `🛠️ Entrada em serviço: ${p.ano || 'N/D'}`
             );
           }
         }).addTo(map);
