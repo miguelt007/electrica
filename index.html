@@ -25,8 +25,6 @@
     }
     .panel {
       position: absolute;
-      bottom: 10px;
-      left: 10px;
       background: white;
       padding: 10px;
       font-size: 14px;
@@ -63,7 +61,18 @@
   <h1>Mapa Interativo da Rede Elétrica por Distrito</h1>
   <div id="map"></div>
 
-  <div class="panel">
+  <!-- Painel REN em tempo real -->
+  <div class="panel" style="top:10px; right:10px; left:auto; width:360px;">
+    <h3>Dados em tempo real (REN)</h3>
+    <iframe
+      src="https://datahub.ren.pt/pt/homepage/electricity/production/detailed/"
+      style="width:100%; height:500px; border:none;"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <!-- Painel de filtros -->
+  <div class="panel" style="bottom:10px; left:10px;">
     <h3>Filtros</h3>
     <strong>Tipos de linha:</strong><br>
     <label><input type="checkbox" id="filtroAlta" checked> Alta tensão</label>
@@ -77,13 +86,14 @@
     <div id="filtroDistritos"></div>
     <hr>
     <strong>Legenda:</strong><br>
-<div><span class="color-box" style="background:red"></span> Alta tensão (≈ 60–150 kV)</div>
-<div><span class="color-box" style="background:deepskyblue"></span> Média/baixa tensão (≈ 6–30 kV)</div>
-<div style="font-size:12px; margin-top:6px;">
-  <em>Nota:</em> Potências estimadas com base em tensão típica.<br>
-  Os ficheiros GeoJSON não incluem valores MVA diretamente.
-</div>
+    <div><span class="color-box" style="background:red"></span> Alta tensão (≈ 60–150 kV)</div>
+    <div><span class="color-box" style="background:deepskyblue"></span> Média/baixa tensão (≈ 6–30 kV)</div>
+    <div style="font-size:12px; margin-top:6px;">
+      <em>Nota:</em> Potências estimadas com base em tensão típica.<br>
+      Os ficheiros GeoJSON não incluem valores MVA diretamente.
+    </div>
   </div>
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const map = L.map('map').setView([39.5, -8], 7);
@@ -140,7 +150,7 @@
           }
         });
     });
-    // Filtros por tipo de linha
+
     document.getElementById('filtroAlta').addEventListener('change', e => {
       distritos.forEach(nome => {
         const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
@@ -161,7 +171,6 @@
       });
     });
 
-    // Filtros por distrito
     filtroDistritos.addEventListener('change', e => {
       const nome = e.target.dataset.distrito;
       if (!nome) return;
@@ -176,8 +185,11 @@
       }
     });
 
-    // Botões de seleção
     document.getElementById('selecionarTodos').addEventListener('click', () => {
+      document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
+        cb.checked = true;
+        const nome = cb.dataset.distrito;
+        if (document.getElementById('.getElementById('selecionarTodos').addEventListener('click', () => {
       document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
         cb.checked = true;
         const nome = cb.dataset.distrito;
@@ -194,6 +206,6 @@
         map.removeLayer(distritoCamadas[nome].baixa);
       });
     });
-    </script>
+  </script>
 </body>
 </html>
