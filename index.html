@@ -79,9 +79,7 @@
     <strong>Legenda:</strong><br>
     <div><span class="color-box" style="background:red"></span> Alta tensão</div>
     <div><span class="color-box" style="background:yellow"></span> Média/baixa tensão</div>
-    <div><img src="https://cdn-icons-png.flaticon.com/512/2963/2963708.png" width="14" style="vertical-align:middle; margin-right:6px;"> Subestação</div>
   </div>
-
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const map = L.map('map').setView([39.5, -8], 7);
@@ -129,7 +127,6 @@
             }
           });
 
-          // Adiciona ao mapa conforme os filtros
           const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
           if (document.getElementById('filtroAlta').checked && ativo) {
             map.addLayer(distritoCamadas[nome].alta);
@@ -139,8 +136,7 @@
           }
         });
     });
-
-    // Filtros por tipo
+    // Filtros por tipo de linha
     document.getElementById('filtroAlta').addEventListener('change', e => {
       distritos.forEach(nome => {
         const ativo = document.querySelector(`input[data-distrito="${nome}"]`).checked;
@@ -176,7 +172,7 @@
       }
     });
 
-    // Botões
+    // Botões de seleção
     document.getElementById('selecionarTodos').addEventListener('click', () => {
       document.querySelectorAll('#filtroDistritos input[type="checkbox"]').forEach(cb => {
         cb.checked = true;
@@ -194,31 +190,6 @@
         map.removeLayer(distritoCamadas[nome].baixa);
       });
     });
-
-    // Subestações
-    const subestacoesIcon = L.icon({
-      iconUrl: 'https://cdn-icons-png.flaticon.com/512/2963/2963708.png',
-      iconSize: [24, 24],
-      iconAnchor: [12, 12],
-      popupAnchor: [0, -12]
-    });
-
-    fetch('dados/subestacoes.geojson')
-      .then(res => res.json())
-      .then(data => {
-        L.geoJSON(data, {
-          pointToLayer: (feature, latlng) => {
-            return L.marker(latlng, { icon: subestacoesIcon });
-          },
-          onEachFeature: (feature, layer) => {
-            const nome = feature.properties.nome || feature.properties.name || 'Subestação';
-            const potencia = feature.properties.potencia_instalada || '';
-            const operador = feature.properties.operator || '';
-            layer.bindPopup(`<strong>${nome}</strong><br>Potência: ${potencia}<br>${operador}`);
-          }
-        }).addTo(map);
-      })
-      .catch(err => console.warn('Erro ao carregar subestações:', err));
-  </script>
+    </script>
 </body>
 </html>
