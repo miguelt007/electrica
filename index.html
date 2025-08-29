@@ -2,12 +2,17 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Mapa de Linhas Elétricas por Distrito</title>
+  <title>Rede Elétrica de Portugal por Distrito</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; }
-    #map { height: 100%; width: 100%; }
+    body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin: 20px 0 10px;
+    }
+    #map { height: calc(100vh - 80px); width: 100%; }
     .legend {
       position: absolute;
       bottom: 10px;
@@ -28,6 +33,7 @@
   </style>
 </head>
 <body>
+  <h1>Mapa Interativo da Rede Elétrica por Distrito</h1>
   <div id="map"></div>
   <div class="legend" id="legend"></div>
 
@@ -81,7 +87,6 @@
             }
           }).addTo(map);
 
-          // Adicionar à legenda
           const item = document.createElement('div');
           item.innerHTML = `<span class="color-box" style="background:${distrito.cor}"></span>${distrito.nome}`;
           legend.appendChild(item);
