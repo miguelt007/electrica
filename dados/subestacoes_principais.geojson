@@ -182,10 +182,6 @@
       }
     },
     {
-    // Blocos de subestações por distrito
-    // Já incluímos: Lisboa, Setúbal, Porto, Évora, Viseu
-    // Agora adicionamos: Braga, Faro, Santarém, Leiria, Castelo Branco, Beja, Viana do Castelo
-    {
       "type": "Feature",
       "properties": {
         "nome": "Braga Norte",
