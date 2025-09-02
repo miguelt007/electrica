@@ -38,8 +38,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.9879,
-                    39.0276
+                    -8.98705,
+                    39.02841
                 ]
             }
         },
@@ -59,8 +59,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.9003,
-                    38.5691
+                    -8.85836,
+                    38.57300
                 ]
             }
         },
@@ -80,8 +80,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.9512,
-                    38.7554
+                    -8.89944,
+                    38.70216
                 ]
             }
         },
@@ -101,8 +101,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.6365,
-                    41.1702
+                    -8.64243,
+                    41.17492
                 ]
             }
         },
@@ -122,8 +122,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.6511,
-                    41.1839
+                    -8.64630,
+                    41.19857
                 ]
             }
         },
@@ -143,8 +143,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.8912,
-                    38.5856
+                    -7.92064,
+                    38.63334
                 ]
             }
         },
@@ -164,7 +164,7 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.5851,
+                    -7.58792,
                     38.8447
                 ]
             }
@@ -185,8 +185,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.6842,
-                    41.1073
+                    -7.6624,
+                    41.1018
                 ]
             }
         },
@@ -206,8 +206,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.8876,
-                    40.6412
+                    -7.88473,
+                    40.61894
                 ]
             }
         },
@@ -227,8 +227,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.4265,
-                    41.5823
+                    -8.47062,
+                    41.58262
                 ]
             }
         },
@@ -248,8 +248,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.8965,
-                    37.0962
+                    -7.85213,
+                    37.08377
                 ]
             }
         },
@@ -269,8 +269,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.9361,
-                    39.3379
+                    -8.93847,
+                    39.33889
                 ]
             }
         },
@@ -290,8 +290,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.8201,
-                    39.6598
+                    -8.78973,
+                    39.65060
                 ]
             }
         },
@@ -311,8 +311,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.4872,
-                    39.8206
+                    -7.47063,
+                    39.82304
                 ]
             }
         },
@@ -332,8 +332,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.5831,
-                    38.2584
+                    -7.58394,
+                    38.25591
                 ]
             }
         },
@@ -353,8 +353,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.8224,
-                    41.6941
+                    -8.75297,
+                    41.65342
                 ]
             }
         },
@@ -374,8 +374,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.4265,
-                    41.5823
+                    -8.47062,
+                    41.58262
                 ]
             }
         },
@@ -395,15 +395,15 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -7.6512,
-                    37.1259
+                    -7.66992,
+                    37.12770
                 ]
             }
         },
         {
             "type": "Feature",
             "properties": {
-                "nome": "Almeirim",
+                "nome": "Almeirim***",
                 "sigla": "SAL",
                 "distrito": "Santarém",
                 "concelho": "Almeirim",
@@ -416,8 +416,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -8.6062,
-                    39.2081
+                    -8.59847,
+                    39.20889
                 ]
             }
         },
