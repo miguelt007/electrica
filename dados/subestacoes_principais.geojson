@@ -311,7 +311,7 @@
         "coordinates": [-8.8224, 41.6942]
       }
     },
-{
+    {
   "type": "Feature",
   "properties": {
     "nome": "Braga Norte",
@@ -418,6 +418,6 @@
     "type": "Point",
     "coordinates": [-7.1871, 41.4862]
   }
-}
+  }
   ]
-}
+  }
