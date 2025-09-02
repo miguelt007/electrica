@@ -342,7 +342,7 @@
     "type": "Point",
     "coordinates": [-8.6043, 41.1118]
   }
-}
+},
 {
   "type": "Feature",
   "properties": {
@@ -355,7 +355,7 @@
     "potencia": "150 MVA",
     "ano": "2003",
     "ligacao_rnt": "Fundão"
-  }
+  },
   "geometry": {
     "type": "Point",
     "coordinates": [-7.4872, 39.8206]
