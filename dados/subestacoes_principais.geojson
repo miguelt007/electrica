@@ -286,12 +286,8 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -7.5831,
-          38.2584
-        ]
-      },
-      "id": 15
+        "coordinates": [-7.5831, 38.2584]
+      }
     },
     {
       "type": "Feature",
@@ -308,10 +304,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -8.8224,
-          41.6942
-        ]
+        "coordinates": [-8.8224, 41.6941]
       }
     },
     {
@@ -329,10 +322,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -8.4265,
-          41.5823
-        ]
+        "coordinates": [-8.4265, 41.5823]
       }
     },
     {
@@ -350,10 +340,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -7.6512,
-          37.1259
-        ]
+        "coordinates": [-7.6512, 37.1259]
       }
     },
     {
@@ -371,10 +358,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -8.6062,
-          39.2081
-        ]
+        "coordinates": [-8.6062, 39.2081]
       }
     },
     {
@@ -392,10 +376,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -8.4287,
-          40.2479
-        ]
+        "coordinates": [-8.4287, 40.2479]
       }
     },
     {
@@ -413,12 +394,8 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -7.2672,
-          40.5373
-        ]
-      },
-      "id": 21
+        "coordinates": [-7.2672, 40.5373]
+      }
     },
     {
       "type": "Feature",
@@ -435,15 +412,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          -7.1871,
-          41.4862
-        ]
+        "coordinates": [-7.1871, 41.4862]
       }
-    }
-  ]
-}
-{
+    },
+    {
   "type": "Feature",
   "properties": {
     "nome": "Mourisca",
