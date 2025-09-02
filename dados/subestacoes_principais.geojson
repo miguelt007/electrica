@@ -1,7 +1,6 @@
 {
   "type": "FeatureCollection",
   "features": [
-    // 🔵 Lisboa
     {
       "type": "Feature",
       "properties": {
@@ -38,8 +37,6 @@
         "coordinates": [-8.9873, 39.0301]
       }
     },
-
-    // 🟢 Setúbal
     {
       "type": "Feature",
       "properties": {
@@ -76,8 +73,6 @@
         "coordinates": [-8.9512, 38.7554]
       }
     },
-
-    // 🔴 Porto
     {
       "type": "Feature",
       "properties": {
@@ -114,8 +109,6 @@
         "coordinates": [-8.6511, 41.1839]
       }
     },
-
-    // 🟡 Évora
     {
       "type": "Feature",
       "properties": {
@@ -152,8 +145,6 @@
         "coordinates": [-7.5851, 38.8447]
       }
     },
-
-    // 🟣 Viseu
     {
       "type": "Feature",
       "properties": {
