@@ -89,7 +89,277 @@
   "geometry": {
     "type": "Point",
     "coordinates": [-7.8965, 37.0962]
+  },
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Alcochete",
+    "sigla": "SACT",
+    "distrito": "Setúbal",
+    "concelho": "Alcochete",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "200 MVA",
+    "ano": "2005",
+    "ligacao_rnt": "Setúbal"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.9512, 38.7554]
   }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Armamar",
+    "sigla": "SAMM",
+    "distrito": "Viseu",
+    "concelho": "Armamar",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "150 MVA",
+    "ano": "2007",
+    "ligacao_rnt": "Vila Real"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.6842, 41.1073]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Custóias",
+    "sigla": "SCT",
+    "distrito": "Porto",
+    "concelho": "Matosinhos",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "180 MVA",
+    "ano": "2006",
+    "ligacao_rnt": "Prelada"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.6511, 41.1839]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Divor",
+    "sigla": "SDVR",
+    "distrito": "Évora",
+    "concelho": "Évora",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "160 MVA",
+    "ano": "2009",
+    "ligacao_rnt": "Estremoz"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.8912, 38.5856]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Palmela",
+    "sigla": "SPM",
+    "distrito": "Setúbal",
+    "concelho": "Palmela",
+    "tipo": "Transformação",
+    "tensao": "400 kV",
+    "potencia": "300 MVA",
+    "ano": "2001",
+    "ligacao_rnt": "Setúbal"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.9003, 38.5691]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Vila Fria",
+    "sigla": "SVF",
+    "distrito": "Viana do Castelo",
+    "concelho": "Viana do Castelo",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "180 MVA",
+    "ano": "2003",
+    "ligacao_rnt": "Braga"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.8224, 41.6942]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Rio Maior",
+    "sigla": "SRM",
+    "distrito": "Santarém",
+    "concelho": "Rio Maior",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "160 MVA",
+    "ano": "2004",
+    "ligacao_rnt": "Batalha"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.9361, 39.3379]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Prelada",
+    "sigla": "SPR",
+    "distrito": "Porto",
+    "concelho": "Porto",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "200 MVA",
+    "ano": "2002",
+    "ligacao_rnt": "Custóias"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.6365, 41.1702]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Estremoz",
+    "sigla": "SETZ",
+    "distrito": "Évora",
+    "concelho": "Estremoz",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "140 MVA",
+    "ano": "2006",
+    "ligacao_rnt": "Divor"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.5851, 38.8447]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Tavira",
+    "sigla": "STV",
+    "distrito": "Faro",
+    "concelho": "Tavira",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "130 MVA",
+    "ano": "2008",
+    "ligacao_rnt": "Estoi"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.6512, 37.1259]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Alqueva",
+    "sigla": "SAV",
+    "distrito": "Beja",
+    "concelho": "Vidigueira",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "140 MVA",
+    "ano": "2005",
+    "ligacao_rnt": "Évora"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.5831, 38.2584]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Bodiosa",
+    "sigla": "SBA",
+    "distrito": "Viseu",
+    "concelho": "Viseu",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "160 MVA",
+    "ano": "2006",
+    "ligacao_rnt": "Armamar"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.8876, 40.6412]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Carrapatelo",
+    "sigla": "SCL",
+    "distrito": "Viseu",
+    "concelho": "Cinfães",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "150 MVA",
+    "ano": "2004",
+    "ligacao_rnt": "Vila Fria"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.1652, 41.0897]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Canelas",
+    "sigla": "SCN",
+    "distrito": "Porto",
+    "concelho": "Vila Nova de Gaia",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "170 MVA",
+    "ano": "2007",
+    "ligacao_rnt": "Prelada"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-8.6043, 41.1118]
+  }
+},
+{
+  "type": "Feature",
+  "properties": {
+    "nome": "Castelo Branco",
+    "sigla": "SCC",
+    "distrito": "Castelo Branco",
+    "concelho": "Castelo Branco",
+    "tipo": "Transformação",
+    "tensao": "220 kV",
+    "potencia": "150 MVA",
+    "ano": "2003",
+    "ligacao_rnt": "Fundão"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-7.4872, 39.8206]
+  }
+}
 }
 ]
 }
